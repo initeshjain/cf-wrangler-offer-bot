@@ -74,7 +74,7 @@ async function loadIntoDB(ScrapedItem: ScrapedItem[], env: Env): Promise<boolean
     await client.connect();
 
     // delete all data from db before inserting new one
-    const res = await client.query("DELETE FROM ");
+    const res = await client.query("DELETE FROM offers");
 
     for (let i = 0; i < ScrapedItem.length; i++) {
 
