@@ -1,12 +1,5 @@
-/**
- * https://github.com/cvzi/telegram-bot-cloudflare
- */
-
 import { Env } from "./constant";
 
-/**
- * https://core.telegram.org/bots/api#sendmessage
- */
 async function SendMessage(text: string, env: Env) {
   return (await fetch(apiUrl('sendMessage', {
     chat_id: env.CHATID,
@@ -15,9 +8,6 @@ async function SendMessage(text: string, env: Env) {
   }, env))).json()
 }
 
-/**
- * Return url to telegram api, optionally with parameters added
- */
 function apiUrl(methodName: string, params: null | TGPayload = null, env: Env) {
   let query = ''
   if (params) {
@@ -26,7 +16,6 @@ function apiUrl(methodName: string, params: null | TGPayload = null, env: Env) {
   return `https://api.telegram.org/bot${env.TOKEN}/${methodName}${query}`
 }
 
-// Start
 export default async function sendToTG(rows: ScrapedItem[], env: Env) {
 
   for (let i = 0; i < rows.length; i++) {

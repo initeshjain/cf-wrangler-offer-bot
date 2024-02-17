@@ -25,7 +25,6 @@ export default async function scrapeItems(env: Env): Promise<boolean> {
   }
 
   let dbRes = await loadIntoDB(items, env);
-  // const dbRes = true;
 
   if (dbRes) {
     await sendToTG(items, env);
